@@ -1,0 +1,159 @@
+[
+  {
+    "model": "api.articlEsection",
+    "pk": 100,
+    "fields": {
+      "name": "Новости экспедиции",
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "api.article",
+    "pk": 101,
+    "fields": {
+      "section": 100,
+      "name": "Первые находки в руинах",
+      "description": "Короткий отчёт о раскопках под куполом.",
+      "details": "Мы обнаружили зал с целыми стеллажами артефактов. Необходимы маги для оценки опасности.",
+      "tags": ["дайджест", "экспедиция"],
+      "created_at": "2025-01-02T00:00:00Z",
+      "updated_at": "2025-01-02T00:00:00Z"
+    }
+  },
+  {
+    "model": "api.race",
+    "pk": 110,
+    "fields": {
+      "name": "Авроры",
+      "description": "Люди, изменённые светом артефактов.",
+      "details": "Их зрачки светятся, а кожа мерцает при соприкосновении с магией.",
+      "creature_type": "Гуманоид",
+      "size": "Средний",
+      "speed": "30",
+      "starting_traits": "Световая вспышка, Тепловой след",
+      "source": "Field Notes",
+      "ability_score_increase": "+2 Ловк, +1 Инт",
+      "tags": ["свет", "исследователи"],
+      "created_at": "2025-01-02T00:00:00Z",
+      "updated_at": "2025-01-02T00:00:00Z"
+    }
+  },
+  {
+    "model": "api.gameclass",
+    "pk": 120,
+    "fields": {
+      "name": "Хронист",
+      "description": "Полевой архивариус экспедиции.",
+      "details": "Следит за артефактами, применяет вспомогательную магию.",
+      "hit_dice": "d8",
+      "primary_ability": "Интеллект",
+      "saving_throws": "Интеллект, Мудрость",
+      "armor_proficiencies": "Лёгкие",
+      "weapon_proficiencies": "Простое",
+      "tool_proficiencies": "Письменные принадлежности",
+      "skill_proficiencies": "История, Анализ",
+      "starting_equipment": "Архиватор, лампа, набор перьев",
+      "spellcasting_ability": "Интеллект",
+      "class_features": {"1": "Полевой дневник", "3": "Каталогизация"},
+      "source": "Expedition Manual",
+      "tags": ["поддержка", "знания"],
+      "created_at": "2025-01-02T00:00:00Z",
+      "updated_at": "2025-01-02T00:00:00Z"
+    }
+  },
+  {
+    "model": "api.country",
+    "pk": 130,
+    "fields": {
+      "name": "Союз Куполов",
+      "description": "Конфедерация исследователей.",
+      "details": "Города стоят под защитными куполами, между ними курсируют караваны.",
+      "capital": "Купол-А",
+      "government": "Совет экспедиционных доменов",
+      "population": "1.2 млн",
+      "major_cities": "Купол-А, Купол-Север",
+      "climate": "Умеренный",
+      "source": "Атлас экспедиции",
+      "tags": ["купола", "караваны"],
+      "created_at": "2025-01-02T00:00:00Z",
+      "updated_at": "2025-01-02T00:00:00Z"
+    }
+  },
+  {
+    "model": "api.god",
+    "pk": 140,
+    "fields": {
+      "name": "Тетис",
+      "description": "Покровительница защитных куполов.",
+      "details": "Её символ — стеклянная сфера. Жрецы управляют барьерными плетениями.",
+      "alignment": "НД",
+      "domains": "Защита, Свет",
+      "symbol": "Сфера с узором",
+      "worshippers": "Инженеры, жрецы куполов",
+      "source": "Летописи",
+      "churches": "Купол-А, Купол-Юг",
+      "tags": ["свет", "щит"],
+      "created_at": "2025-01-02T00:00:00Z",
+      "updated_at": "2025-01-02T00:00:00Z"
+    }
+  },
+  {
+    "model": "api.trait",
+    "pk": 150,
+    "fields": {
+      "name": "Следопыт руин",
+      "description": "Чувствует остаточную магию.",
+      "details": "Раз в день может определить направление к ближайшему артефакту.",
+      "prerequisites": "Обучение в экспедиции",
+      "benefits": "Бонус к поиску артефактов",
+      "source": "Expedition Manual",
+      "trait_type": "background",
+      "alternative_ability_score": "",
+      "tags": ["поиск", "артефакты"],
+      "created_at": "2025-01-02T00:00:00Z",
+      "updated_at": "2025-01-02T00:00:00Z"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 160,
+    "fields": {
+      "name": "Сияющий клинок",
+      "description": "Сабля с имплантом света.",
+      "details": "Излучает мягкое освещение и наносит дополнительный лучевой урон.",
+      "tier": "Minor",
+      "rarity": "Необычный",
+      "class_requirement": "",
+      "item_type": "Оружие/доспех",
+      "source": "Арсенал экспедиции",
+      "price": "250 золота",
+      "weight": "1",
+      "attunement": true,
+      "consumable": false,
+      "requirements": "Настройка",
+      "urbanization_level": 3,
+      "tags": ["оружие", "свет"],
+      "created_at": "2025-01-02T00:00:00Z",
+      "updated_at": "2025-01-02T00:00:00Z"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 170,
+    "fields": {
+      "name": "Канат-хамелеон",
+      "description": "Меняет цвет под окружение.",
+      "details": "Дарует преимущество на скрытность при подъёме.",
+      "weight": "2",
+      "price": "30 золота",
+      "size": "Обычный",
+      "hit_points": "12",
+      "urbanization_level": 2,
+      "predominant_material": "Синтетика",
+      "tags": ["снаряжение", "скрытность"],
+      "created_at": "2025-01-02T00:00:00Z",
+      "updated_at": "2025-01-02T00:00:00Z"
+    }
+  }
+]
