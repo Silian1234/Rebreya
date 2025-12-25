@@ -204,7 +204,16 @@ class CountrySerializer(BaseEntrySerializer):
 
 class RaceSerializer(BaseEntrySerializer):
     creatureType = serializers.CharField(source="creature_type", allow_blank=True, required=False)
-    startingTraits = serializers.CharField(source="starting_traits", allow_blank=True, required=False)
+    age = serializers.CharField(allow_blank=True, required=False)
+    weight = serializers.CharField(allow_blank=True, required=False)
+    languages = serializers.CharField(allow_blank=True, required=False)
+    racialTrait = serializers.CharField(source="racial_trait", allow_blank=True, required=False)
+    primaryAbility = serializers.CharField(source="primary_ability", allow_blank=True, required=False)
+    secondaryPrimaryAbility = serializers.CharField(source="secondary_primary_ability", allow_blank=True, required=False)
+    minorAbilities = serializers.CharField(source="minor_abilities", allow_blank=True, required=False)
+    negativeAbility = serializers.CharField(source="negative_ability", allow_blank=True, required=False)
+    secondaryNegativeAbility = serializers.CharField(source="secondary_negative_ability", allow_blank=True, required=False)
+    raceGroup = serializers.CharField(source="race_group", allow_blank=True, required=False)
     abilityScoreIncrease = serializers.CharField(source="ability_score_increase", allow_blank=True, required=False)
 
     class Meta(BaseEntrySerializer.Meta):
@@ -213,7 +222,16 @@ class RaceSerializer(BaseEntrySerializer):
             "creatureType",
             "size",
             "speed",
-            "startingTraits",
+            "age",
+            "weight",
+            "languages",
+            "racialTrait",
+            "primaryAbility",
+            "secondaryPrimaryAbility",
+            "minorAbilities",
+            "negativeAbility",
+            "secondaryNegativeAbility",
+            "raceGroup",
             "source",
             "abilityScoreIncrease",
         )
@@ -235,8 +253,7 @@ class GodSerializer(BaseEntrySerializer):
 
 
 class TraitSerializer(BaseEntrySerializer):
-    traitType = serializers.ChoiceField(source="trait_type", choices=Trait.TRAIT_TYPE_CHOICES, default="ancestry")
-    alternativeAbilityScore = serializers.CharField(source="alternative_ability_score", allow_blank=True, required=False)
+    traitType = serializers.ChoiceField(source="trait_type", choices=Trait.TRAIT_TYPE_CHOICES, default="minor")
 
     class Meta(BaseEntrySerializer.Meta):
         model = Trait
@@ -245,7 +262,6 @@ class TraitSerializer(BaseEntrySerializer):
             "benefits",
             "source",
             "traitType",
-            "alternativeAbilityScore",
         )
 
 

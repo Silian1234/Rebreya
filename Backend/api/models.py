@@ -102,7 +102,16 @@ class Race(BaseEntry):
     creature_type = models.CharField(max_length=255, blank=True, default="")
     size = models.CharField(max_length=255, blank=True, default="")
     speed = models.CharField(max_length=255, blank=True, default="")
-    starting_traits = models.TextField(blank=True, default="")
+    age = models.CharField(max_length=255, blank=True, default="")
+    weight = models.CharField(max_length=255, blank=True, default="")
+    languages = models.CharField(max_length=255, blank=True, default="")
+    racial_trait = models.TextField(blank=True, default="")
+    primary_ability = models.TextField(blank=True, default="")
+    secondary_primary_ability = models.TextField(blank=True, default="")
+    minor_abilities = models.TextField(blank=True, default="")
+    negative_ability = models.TextField(blank=True, default="")
+    secondary_negative_ability = models.TextField(blank=True, default="")
+    race_group = models.CharField(max_length=255, blank=True, default="")
     source = models.CharField(max_length=255, blank=True, default="")
     ability_score_increase = models.CharField(max_length=255, blank=True, default="")
 
@@ -118,19 +127,17 @@ class God(BaseEntry):
 
 class Trait(BaseEntry):
     TRAIT_TYPE_CHOICES = (
-        ("ancestry", "Ancestry"),
-        ("class", "Class"),
-        ("background", "Background"),
-        ("regional", "Regional"),
-        ("feat", "Feat"),
-        ("other", "Other"),
+        ("minor", "Minor"),
+        ("common", "Common"),
+        ("major", "Major"),
+        ("racial", "Racial"),
+        ("multiclass", "Multiclass"),
     )
 
     prerequisites = models.TextField(blank=True, default="")
     benefits = models.TextField(blank=True, default="")
     source = models.CharField(max_length=255, blank=True, default="")
-    trait_type = models.CharField(max_length=32, choices=TRAIT_TYPE_CHOICES, default="ancestry")
-    alternative_ability_score = models.CharField(max_length=255, blank=True, default="")
+    trait_type = models.CharField(max_length=32, choices=TRAIT_TYPE_CHOICES, default="minor")
 
 
 class ArticleSection(TimeStampedModel):

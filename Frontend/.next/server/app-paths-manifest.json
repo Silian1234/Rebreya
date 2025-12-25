@@ -1,10 +1,4 @@
 {
   "/traits/page": "app/traits/page.js",
-  "/news/page": "app/news/page.js",
-  "/classes/page": "app/classes/page.js",
-  "/gods/page": "app/gods/page.js",
-  "/races/page": "app/races/page.js",
-  "/countries/page": "app/countries/page.js",
-  "/login/page": "app/login/page.js",
-  "/page": "app/page.js"
+  "/classes/page": "app/classes/page.js"
 }

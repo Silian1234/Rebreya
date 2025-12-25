@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useCrud } from "@/hooks/use-crud"
 import { useCanManage } from "@/lib/roles"
 
-type TraitType = "ancestry" | "class" | "background" | "regional" | "feat" | "other"
+type TraitType = "minor" | "common" | "major" | "racial" | "multiclass"
 
 interface Trait {
   id: number
@@ -21,7 +21,6 @@ interface Trait {
   benefits?: string
   source?: string
   traitType: TraitType
-  alternativeAbilityScore?: string
   tags: string[]
 }
 
@@ -33,8 +32,7 @@ function AddTraitForm({ onAdd }: { onAdd: (trait: Omit<Trait, "id">) => void }) 
     prerequisites: "",
     benefits: "",
     source: "",
-    traitType: "background",
-    alternativeAbilityScore: "",
+    traitType: "minor",
     tags: [],
   })
 
@@ -48,8 +46,7 @@ function AddTraitForm({ onAdd }: { onAdd: (trait: Omit<Trait, "id">) => void }) 
       prerequisites: "",
       benefits: "",
       source: "",
-      traitType: "background",
-      alternativeAbilityScore: "",
+      traitType: "minor",
       tags: [],
     })
   }
@@ -105,22 +102,14 @@ function AddTraitForm({ onAdd }: { onAdd: (trait: Omit<Trait, "id">) => void }) 
             <SelectValue placeholder="Тип черты" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="ancestry">Родословная</SelectItem>
-            <SelectItem value="class">Класс</SelectItem>
-            <SelectItem value="background">Предыстория</SelectItem>
-            <SelectItem value="regional">Региональная</SelectItem>
-            <SelectItem value="feat">Фит</SelectItem>
-            <SelectItem value="other">Другое</SelectItem>
+            <SelectItem value="minor">Младшая</SelectItem>
+            <SelectItem value="common">Общая</SelectItem>
+            <SelectItem value="major">Старшая</SelectItem>
+            <SelectItem value="racial">Расовая</SelectItem>
+            <SelectItem value="multiclass">Мультиклассовая</SelectItem>
           </SelectContent>
         </Select>
       </div>
-      {newTrait.traitType === "background" && (
-        <Input
-          placeholder="Альтернативный бонус к характеристике (если есть)"
-          value={newTrait.alternativeAbilityScore}
-          onChange={(e) => setNewTrait({ ...newTrait, alternativeAbilityScore: e.target.value })}
-        />
-      )}
       <Button type="submit" className="w-full">
         Добавить черту
       </Button>
@@ -187,22 +176,14 @@ function EditTraitForm({ item, onEdit }: { item: Trait; onEdit: (trait: Trait) =
             <SelectValue placeholder="Тип черты" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="ancestry">Родословная</SelectItem>
-            <SelectItem value="class">Класс</SelectItem>
-            <SelectItem value="background">Предыстория</SelectItem>
-            <SelectItem value="regional">Региональная</SelectItem>
-            <SelectItem value="feat">Фит</SelectItem>
-            <SelectItem value="other">Другое</SelectItem>
+            <SelectItem value="minor">Младшая</SelectItem>
+            <SelectItem value="common">Общая</SelectItem>
+            <SelectItem value="major">Старшая</SelectItem>
+            <SelectItem value="racial">Расовая</SelectItem>
+            <SelectItem value="multiclass">Мультиклассовая</SelectItem>
           </SelectContent>
         </Select>
       </div>
-      {editedTrait.traitType === "background" && (
-        <Input
-          placeholder="Альтернативный бонус к характеристике (если есть)"
-          value={editedTrait.alternativeAbilityScore}
-          onChange={(e) => setEditedTrait({ ...editedTrait, alternativeAbilityScore: e.target.value })}
-        />
-      )}
       <Button type="submit" className="w-full">
         Сохранить черту
       </Button>
